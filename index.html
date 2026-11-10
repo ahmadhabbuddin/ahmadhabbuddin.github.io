@@ -1,287 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+:root{ --pink:#f7b8c8; --deep:#b85f7b; --ink:#55434b; --cream:#fff9f5; --lav:#e8ddf7; --yellow:#ffe8a8; --mint:#d9eee5; } *{box-sizing:border-box} body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 10%,#ffe2eb 0,transparent 28%),radial-gradient(circle at 90% 80%,#e9e0fb 0,transparent 30%),var(--cream);color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;overflow-x:hidden} button{font:inherit;cursor:pointer;border:0} .wrap{width:min(720px,92vw);margin:auto;padding:28px 0 56px} .top{display:flex;justify-content:space-between;align-items:center;font-size:.76rem;letter-spacing:.13em;color:#a77a89;text-transform:uppercase} .top .heart{font-size:1.3rem;letter-spacing:0} .card{margin:28px auto 0;background:#ffffffd9;border:1px solid #fff;box-shadow:0 18px 55px #b87a8b20;border-radius:30px;padding:clamp(22px,5vw,42px);text-align:center;position:relative;overflow:hidden} .eyebrow{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--deep);font-weight:800} h1,h2,p{margin-top:0} h1{font-size:clamp(2.6rem,9vw,4.7rem);line-height:1.02;letter-spacing:-.06em;margin:14px 0;color:#684b59} h2{font-size:clamp(1.7rem,6vw,2.5rem);letter-spacing:-.04em;color:#684b59;margin-bottom:12px} p{line-height:1.75;color:#806c75} .hero-art{height:190px;display:grid;place-items:center;position:relative;margin:8px auto 18px} .envelope{width:170px;height:112px;background:#f5b8c8;border-radius:12px;position:relative;box-shadow:0 12px 22px #b85f7b25;transform:rotate(-3deg)} .envelope:before{content:"";position:absolute;inset:0;background:#f9d2dc;clip-path:polygon(0 0,50% 58%,100% 0);border-radius:12px 12px 0 0} .envelope:after{content:"";position:absolute;inset:0;background:#ed9fb4;clip-path:polygon(0 100%,50% 48%,100% 100%);border-radius:0 0 12px 12px} .seal{position:absolute;z-index:2;left:50%;top:52%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff2f4;color:#c46c86;display:grid;place-items:center;font-size:1.2rem} .float{position:absolute;font-size:1.7rem;animation:float 3s ease-in-out infinite} .f1{left:12%;top:18%}.f2{right:13%;top:14%;animation-delay:.8s}.f3{right:19%;bottom:8%;animation-delay:1.4s}.f4{left:20%;bottom:3%;animation-delay:.4s} @keyframes float{50%{transform:translateY(-10px) rotate(8deg)}} .btn{padding:14px 23px;border-radius:999px;background:var(--deep);color:white;font-weight:800;box-shadow:0 8px 18px #b85f7b35;transition:.2s} .btn:hover{transform:translateY(-2px);filter:brightness(1.04)} .btn.secondary{background:#fff0f4;color:#a34e6b;box-shadow:none;border:1px solid #f5d3dd} .hint{font-size:.8rem;color:#ad929c;margin:14px 0 0} .hidden{display:none!important} .progress{height:5px;background:#f8e7ec;border-radius:9px;overflow:hidden;margin:0 0 22px} .progress span{display:block;height:100%;width:20%;background:#dc91a8;transition:width .3s} .memory{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px 0} .memory div{border-radius:18px;padding:18px 12px;min-height:112px;display:grid;place-items:center;font-size:2rem} .memory div:nth-child(1){background:#fff0f3}.memory div:nth-child(2){background:#f0eafa}.memory div:nth-child(3){background:#fff5d9}.memory div:nth-child(4){background:#e9f5ef} .memory small{display:block;font-size:.78rem;color:#806c75;margin-top:6px} .note{background:#fff7e8;border:1px dashed #e7c98a;padding:22px;border-radius:20px;text-align:left;line-height:1.9;color:#75616a;margin:20px 0} .question{font-size:clamp(2rem,7vw,3.3rem);line-height:1.1;color:#a94e6c;margin:18px 0} .choices{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px} .yes{background:#d97896}.no{background:#fff0f4;color:#a45a73;border:1px solid #f0cbd7;position:relative} .final-heart{font-size:4rem;animation:beat 1s infinite} @keyframes beat{50%{transform:scale(1.15)}} .footer{text-align:center;font-size:.75rem;color:#b49aa4;margin-top:22px} .sparkle{position:fixed;pointer-events:none;z-index:5;font-size:20px;animation:pop 900ms ease-out forwards} @keyframes pop{to{transform:translate(var(--x),var(--y)) rotate(160deg) scale(.2);opacity:0}} @media(max-width:480px){.memory{gap:8px}.memory div{min-height:100px;padding:12px 6px}.card{border-radius:24px}} 
 
-<head>
+a tiny corner of the internetmade with ♡
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+a little something for you
 
+✦♡🌷✧ 
 
-  <title>Ahmad Habbuddin Asy Syakir</title>
+♥
 
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/d2b950830a.js" crossorigin="anonymous"></script>
+Hey, you.
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+Ada sesuatu yang pengin aku sampaikan.
+Tenang, bukan tagihan atau bug report kok. 😄
 
-  <!-- Theme CSS - Includes Bootstrap -->
-  <link href="css/creative.min.css" rel="stylesheet">
+Buka surat kecil ini ♡ 
 
-</head>
+dibuat khusus untuk seseorang yang spesial
 
-<body id="page-top">
+chapter 01 · little things
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Ahmad Habbuddin</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto my-2 my-lg-0">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+Hal-hal kecil yang aku suka
 
-  <!-- Masthead -->
-  <header class="masthead">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center justify-content-center text-center">
-        <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">Welcome to My Portfolio</h1>
-          <hr class="divider my-4">
-        </div>
-        <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">I'am a Beginner Of Fullstack Web Developer</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Tell Me More</a>
-        </div>
-      </div>
-    </div>
-  </header>
+Bukan hal besar atau sesuatu yang dibuat-buat. Justru hal sederhana yang bikin aku senang mengenal kamu.
 
-  <!-- About Section -->
-  <section class="page-section bg-primary" id="about">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="text-white mt-0">About Me</h2>
-          <hr class="divider light my-4">
-          <p class="text-white-50 mb-4">My name is Ahmad Habbuddin Asy Syakir. I was born on January 18<sup>th</sup>, 1999. Now I am <span id="ages"></span> years old. Last education graduated from SMKN 16 Jakarta on 2016. I knew a programming since 2017 from my friend, but i don't have an experience.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+🎨Kreativitas dan caramu menikmati hal yang kamu suka
 
-  <!-- skills Section -->
-  <section class="page-section" id="skills">
-    <div class="container">
-      <h2 class="text-center mt-0">My Skills</h2>
-      <hr class="divider my-4">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5 border border-primary py-3">
-            <i class="fab fa-4x fa-html5 text-primary mb-4"></i>
-            <h3 class="h4 mb-2">HTML</h3>
-            <div class="progress mx-5">
-              <div class="progress-bar bg-info" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5 border border-primary py-3">
-            <i class="fab fa-4x fa-css3 text-primary mb-4"></i>
-            <h3 class="h4 mb-2">CSS</h3>
-            <div class="progress mx-5">
-              <div class="progress-bar bg-info" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5 border border-primary py-3">
-            <i class="fab fa-4x fa-js text-primary mb-4"></i>
-            <h3 class="h4 mb-2">JAVASCRIPT</h3>
-            <div class="progress mx-5">
-              <div class="progress-bar bg-info" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
-            </div>
-          </div>
-        </div>
-      </div>
+🎨Momen painting bareng yang sederhana tapi berkesan
 
-      <div class="row">
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5 border border-primary py-3">
-            <i class="fab fa-4x fa-php text-primary mb-4"></i>
-            <h3 class="h4 mb-2">PHP</h3>
-            <div class="progress mx-5">
-              <div class="progress-bar bg-info" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5 border border-primary py-3">
-            <i class="fas fa-4x fa-database text-primary mb-4"></i>
-            <h3 class="h4 mb-2">MYSQL</h3>
-            <div class="progress mx-5">
-              <div class="progress-bar bg-info" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5 border border-primary py-3">
-            <i class="fab fa-4x fa-bootstrap text-primary mb-4"></i>
-            <h3 class="h4 mb-2">BOOTSTRAP</h3>
-            <div class="progress mx-5">
-              <div class="progress-bar bg-info" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
-            </div>
-          </div>
-        </div>
-      </div>
+🌼Cara kamu jadi diri sendiri
 
-      <div class="row">
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5 border border-primary py-3">
-            <i class="fas fa-4x fa-code text-primary mb-4"></i>
-            <h3 class="h4 mb-2">JQUERY</h3>
-            <div class="progress mx-5">
-              <div class="progress-bar bg-info" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5 border border-primary py-3">
-            <i class="fas fa-4x fa-fire text-primary mb-4"></i>
-            <h3 class="h4 mb-2">CODEIGNITER</h3>
-            <div class="progress mx-5">
-              <div class="progress-bar bg-info" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5 border border-primary py-3">
-            <i class="fab fa-4x fa-git text-primary mb-4"></i>
-            <h3 class="h4 mb-2">GIT</h3>
-            <div class="progress mx-5">
-              <div class="progress-bar bg-info" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
-            </div>
-          </div>
-        </div>
-      </div>
+✨Momen sederhana yang ternyata berkesan
 
-    </div>
-  </section>
+Lanjut yuk → 
 
-  <!-- Portfolio Section -->
-  <section id="portfolio">
-    <div class="container-fluid p-0">
-      <div class="row no-gutters">
-        <div class="col-lg-6 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/7.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/7.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Website
-              </div>
-              <div class="project-name">
-                My Marketplace
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-6 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/8.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/8.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Website
-              </div>
-              <div class="project-name">
-                Marketplace Manajemen System
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+chapter 02 · a small confession
 
-  <!-- Call to Action Section -->
-  <section class="page-section bg-dark text-white">
-    <div class="container text-center">
-      <div class="row justify-content-center">
-        <div class="col-lg-4">
-          <h2 class="mb-4">My CV</h2>
-          <a class="btn btn-success btn-xl" href="https://drive.google.com/file/d/1TJeH3AzDi1NxRzSankGr1Pqpt_NKVf3c/view?usp=sharing">Download Now!</a>
-        </div>
-        <div class="col-lg-4">
-          <h2 class="mb-4">Web Certificate</h2>
-          <a class="btn btn-success btn-xl" href="https://drive.google.com/file/d/0B-gkuZxO5YzzcnVZRFV3VjlqQWZ0Q19Qb1hodnVlbE5GRGdn/view?usp=sharing">View Certificate</a>
-        </div>
-      </div>
-    </div>
-  </section>
+Aku mau jujur sedikit...
 
-  <!-- Contact Section -->
-  <section class="page-section" id="contact">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="mt-0">CONTACT</h2>
-          <hr class="divider my-4">
-          <p class="text-muted mb-5">Contact me</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 ml-auto text-center">
-          <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-          <div>+62 877 7007 0984</div>
-        </div>
-        <div class="col-lg-4 mr-auto text-center">
-          <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-          <!-- Make sure to change the email address in anchor text AND the link below! -->
-          <a class="d-block" href="mailto:ahmad.habbuddin@gmail.com">ahmad.habbbuddin@gmail.com</a>
-        </div>
-      </div>
-    </div>
-  </section>
+Awalnya mungkin cuma obrolan biasa, lalu jadi saling mengenal, berbagi cerita, dan menghabiskan waktu bersama. 
 
-  <!-- Footer -->
-  <footer class="bg-light py-5">
-    <div class="container">
-      <div class="small text-center text-muted">Copyright &copy; 2019 - Ahmad Habbuddin Asy Syakir</div>
-    </div>
-  </footer>
+Dari obrolan sampai momen painting bareng itu, aku sadar kalau aku menikmati kehadiran kamu. Aku senang mengenal kamu lebih dekat, dan belakangan ini ada perasaan yang tumbuh lebih dari sekadar teman. 
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+Nggak ada kalimat yang terlalu sempurna. Aku cuma pengin menyampaikannya dengan jujur.
 
-  <!-- Plugin JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha256-P93G0oq6PBPWTP1IR8Mz/0jHHUpaWL0aBJTKauisG7Q=" crossorigin="anonymous"></script>
+Ada satu hal lagi → 
 
-  <!-- Custom scripts for this template -->
-  <script src="js/creative.min.js"></script>
+the question
 
-  <script>
-    let year = new Date().getFullYear("now")
-    $('#ages').text(year-1999)
-    $('#mainNav').css({'transition':'.5s'})
-    $(window).scroll(function () {
-      if( $(this).scrollTop() > 900 ){
-        $('#mainNav').addClass('bg-primary')
-        $('#mainNav').removeClass('py-3')
-      }else{
-        $('#mainNav').removeClass('bg-primary')
-        $('#mainNav').addClass('py-3')
-      }
-    })
-  </script>
+♡
 
-</body>
+Jadi, setelah semua cerita kecil ini...
 
-</html>
+Would you be my girlfriend?
+
+Take your time. Aku ingin kamu menjawab dengan nyaman dan tanpa merasa terburu-buru.
+
+Yes, I'd love to! ♡ Can I think about it? 
+
+one more thing
+
+💗
+
+Whatever your answer is...
+
+Terima kasih sudah meluangkan waktu untuk membaca ini. Aku senang bisa mengenal kamu.
+
+Baca lagi dari awal ↺ 
+
+a little courage, wrapped in a little website · ♡
+
+const intro=document.getElementById('intro'), story=document.getElementById('story'), result=document.getElementById('result'); function start(){intro.classList.add('hidden');story.classList.remove('hidden');next(1);window.scrollTo({top:0,behavior:'smooth'});} function next(n){ [1,2,3].forEach(i=>document.getElementById('step'+i).classList.toggle('hidden',i!==n)); document.getElementById('bar').style.width=({1:'33%',2:'66%',3:'100%'})[n]; window.scrollTo({top:0,behavior:'smooth'}); } function answerYes(){ story.classList.add('hidden');result.classList.remove('hidden'); document.getElementById('resultTitle').textContent='You just made me smile. ♡'; document.getElementById('resultText').textContent='Makasih sudah menerima perasaanku. Aku nggak sabar buat membuat lebih banyak cerita dan kenangan bareng kamu. Kita jalanin pelan-pelan, ya.'; confetti();window.scrollTo({top:0,behavior:'smooth'}); } function answerMaybe(){ story.classList.add('hidden');result.classList.remove('hidden'); document.getElementById('resultTitle').textContent='Of course. Take your time. ♡'; document.getElementById('resultText').textContent='Nggak apa-apa, aku menghargai perasaan dan keputusan kamu. Terima kasih sudah membaca sampai sini. Apa pun jawabannya, aku tetap senang pernah mengenal kamu.'; window.scrollTo({top:0,behavior:'smooth'}); } function restart(){result.classList.add('hidden');intro.classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});} function confetti(){ const symbols=['♡','✦','✿','♥','✨']; for(let i=0;i<34;i++){ const s=document.createElement('span');s.className='sparkle';s.textContent=symbols[Math.floor(Math.random()*symbols.length)]; s.style.left=(window.innerWidth/2)+'px';s.style.top=(window.innerHeight/2)+'px'; s.style.setProperty('--x',(Math.random()-.5)*window.innerWidth+'px');s.style.setProperty('--y',(Math.random()-.5)*window.innerHeight+'px'); document.body.appendChild(s);setTimeout(()=>s.remove(),950); } } 
