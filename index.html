@@ -168,7 +168,10 @@ Aku nggak tahu persis bagaimana perjalanan ke depannya, tapi aku tahu bahwa aku 
     if(username==='kopi_dulu' && password==='segelaskopisejutacerita'){
       loginGate.classList.add('hidden');
       siteContent.classList.remove('hidden');
-      window.scrollTo({top:0,behavior:'smooth'});
+     // Setelah login berhasil
+sendTelegram("💌 Someone just entered the confession website!");
+
+ window.scrollTo({top:0,behavior:'smooth'});
     }else{
       document.getElementById('loginError').textContent='Hmm, username atau password-nya belum tepat. Coba lagi ya ♡';
       document.getElementById('loginPass').value='';
@@ -176,13 +179,22 @@ Aku nggak tahu persis bagaimana perjalanan ke depannya, tapi aku tahu bahwa aku 
     }
   });
   const intro=document.getElementById('intro'), story=document.getElementById('story'), result=document.getElementById('result');
-  function start(){intro.classList.add('hidden');story.classList.remove('hidden');next(1);window.scrollTo({top:0,behavior:'smooth'});}
+  function start(){
+intro.classList.add('hidden');story.classList.remove('hidden');next(1);window.scrollTo({top:0,behavior:'smooth'});
+// Saat membuka surat
+sendTelegram("📖 She just opened your letter!");
+}
   function next(n){
     [1,2,3].forEach(i=>document.getElementById('step'+i).classList.toggle('hidden',i!==n));
     document.getElementById('bar').style.width=({1:'33%',2:'66%',3:'100%'})[n];
     window.scrollTo({top:0,behavior:'smooth'});
   }
   function answerYes(){
+
+// Ketika dia memilih Yes
+sendTelegramNotification(
+  "❤️ Nep said YES!"
+);
     story.classList.add('hidden');result.classList.remove('hidden');
     document.getElementById('resultTitle').textContent='You just made me smile. ♡';
     document.getElementById('resultText').textContent='Makasih sudah menerima perasaanku. Aku nggak sabar buat membuat lebih banyak cerita dan kenangan bareng kamu. Kita jalanin pelan-pelan, ya.';
@@ -193,6 +205,10 @@ Aku nggak tahu persis bagaimana perjalanan ke depannya, tapi aku tahu bahwa aku 
     document.getElementById('resultTitle').textContent='Of course. Take your time. ♡';
     document.getElementById('resultText').textContent='Nggak apa-apa, aku menghargai perasaan dan keputusan kamu. Terima kasih sudah membaca sampai sini. Apa pun jawabannya, aku tetap senang pernah mengenal kamu.';
     window.scrollTo({top:0,behavior:'smooth'});
+// Ketika dia memilih Maybe
+sendTelegramNotification(
+  "Nep masih mikir dulu, bingung!"
+);
   }
   function restart(){result.classList.add('hidden');intro.classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
   function confetti(){
@@ -204,6 +220,22 @@ Aku nggak tahu persis bagaimana perjalanan ke depannya, tapi aku tahu bahwa aku 
       document.body.appendChild(s);setTimeout(()=>s.remove(),950);
     }
   }
+async function sendTelegramNotification(message) {
+  const token = "9229928042:AAHXJ6ldga0FJHqWbsLL7iKnWxSuwcEihp8";
+  const chatId = "1252882396";
+
+  await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: message
+    })
+  });
+}
+
 </script>
 </body>
 </html>
