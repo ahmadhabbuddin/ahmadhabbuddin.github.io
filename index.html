@@ -169,7 +169,7 @@ Aku nggak tahu persis bagaimana perjalanan ke depannya, tapi aku tahu bahwa aku 
       loginGate.classList.add('hidden');
       siteContent.classList.remove('hidden');
      // Setelah login berhasil
-sendTelegram("💌 Someone just entered the confession website!");
+sendTelegramNotification("💌 Someone just entered the confession website!");
 
  window.scrollTo({top:0,behavior:'smooth'});
     }else{
@@ -182,7 +182,7 @@ sendTelegram("💌 Someone just entered the confession website!");
   function start(){
 intro.classList.add('hidden');story.classList.remove('hidden');next(1);window.scrollTo({top:0,behavior:'smooth'});
 // Saat membuka surat
-sendTelegram("📖 She just opened your letter!");
+sendTelegramNotification("📖 She just opened your letter!");
 }
   function next(n){
     [1,2,3].forEach(i=>document.getElementById('step'+i).classList.toggle('hidden',i!==n));
