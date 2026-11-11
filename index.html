@@ -1,241 +1,731 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff5f7">
-<title>A Little Surprise for You ♡</title>
-<style>
-  :root{
-    --pink:#f7b8c8; --deep:#b85f7b; --ink:#55434b; --cream:#fff9f5;
-    --lav:#e8ddf7; --yellow:#ffe8a8; --mint:#d9eee5;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 10%,#ffe2eb 0,transparent 28%),radial-gradient(circle at 90% 80%,#e9e0fb 0,transparent 30%),var(--cream);color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;overflow-x:hidden}
-  button{font:inherit;cursor:pointer;border:0}
-  .wrap{width:min(720px,92vw);margin:auto;padding:28px 0 56px}
-  .top{display:flex;justify-content:space-between;align-items:center;font-size:.76rem;letter-spacing:.13em;color:#a77a89;text-transform:uppercase}
-  .top .heart{font-size:1.3rem;letter-spacing:0}
-  .card{margin:28px auto 0;background:#ffffffd9;border:1px solid #fff;box-shadow:0 18px 55px #b87a8b20;border-radius:30px;padding:clamp(22px,5vw,42px);text-align:center;position:relative;overflow:hidden}
-  .eyebrow{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--deep);font-weight:800}
-  h1,h2,p{margin-top:0}
-  h1{font-size:clamp(2.6rem,9vw,4.7rem);line-height:1.02;letter-spacing:-.06em;margin:14px 0;color:#684b59}
-  h2{font-size:clamp(1.7rem,6vw,2.5rem);letter-spacing:-.04em;color:#684b59;margin-bottom:12px}
-  p{line-height:1.75;color:#806c75}
-  .hero-art{height:190px;display:grid;place-items:center;position:relative;margin:8px auto 18px}
-  .envelope{width:170px;height:112px;background:#f5b8c8;border-radius:12px;position:relative;box-shadow:0 12px 22px #b85f7b25;transform:rotate(-3deg)}
-  .envelope:before{content:"";position:absolute;inset:0;background:#f9d2dc;clip-path:polygon(0 0,50% 58%,100% 0);border-radius:12px 12px 0 0}
-  .envelope:after{content:"";position:absolute;inset:0;background:#ed9fb4;clip-path:polygon(0 100%,50% 48%,100% 100%);border-radius:0 0 12px 12px}
-  .seal{position:absolute;z-index:2;left:50%;top:52%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff2f4;color:#c46c86;display:grid;place-items:center;font-size:1.2rem}
-  .float{position:absolute;font-size:1.7rem;animation:float 3s ease-in-out infinite}
-  .f1{left:12%;top:18%}.f2{right:13%;top:14%;animation-delay:.8s}.f3{right:19%;bottom:8%;animation-delay:1.4s}.f4{left:20%;bottom:3%;animation-delay:.4s}
-  @keyframes float{50%{transform:translateY(-10px) rotate(8deg)}}
-  .btn{padding:14px 23px;border-radius:999px;background:var(--deep);color:white;font-weight:800;box-shadow:0 8px 18px #b85f7b35;transition:.2s}
-  .btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
-  .btn.secondary{background:#fff0f4;color:#a34e6b;box-shadow:none;border:1px solid #f5d3dd}
-  .hint{font-size:.8rem;color:#ad929c;margin:14px 0 0}
-  .hidden{display:none!important}
-  .progress{height:5px;background:#f8e7ec;border-radius:9px;overflow:hidden;margin:0 0 22px}
-  .progress span{display:block;height:100%;width:20%;background:#dc91a8;transition:width .3s}
-  .memory{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px 0}
-  .memory div{border-radius:18px;padding:18px 12px;min-height:112px;display:grid;place-items:center;font-size:2rem}
-  .memory div:nth-child(1){background:#fff0f3}.memory div:nth-child(2){background:#f0eafa}.memory div:nth-child(3){background:#fff5d9}.memory div:nth-child(4){background:#e9f5ef}
-  .memory small{display:block;font-size:.78rem;color:#806c75;margin-top:6px}
-  .note{background:#fff7e8;border:1px dashed #e7c98a;padding:22px;border-radius:20px;text-align:left;line-height:1.9;color:#75616a;margin:20px 0}
-  .question{font-size:clamp(2rem,7vw,3.3rem);line-height:1.1;color:#a94e6c;margin:18px 0}
-  .choices{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
-  .yes{background:#d97896}.no{background:#fff0f4;color:#a45a73;border:1px solid #f0cbd7;position:relative}
-  .final-heart{font-size:4rem;animation:beat 1s infinite}
-  @keyframes beat{50%{transform:scale(1.15)}}
-  .footer{text-align:center;font-size:.75rem;color:#b49aa4;margin-top:22px}
-  .sparkle{position:fixed;pointer-events:none;z-index:5;font-size:20px;animation:pop 900ms ease-out forwards}
-  @keyframes pop{to{transform:translate(var(--x),var(--y)) rotate(160deg) scale(.2);opacity:0}}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff5f7">
+  <title>A Little Surprise for You ♡</title>
+  <style>
+    :root {
+      --pink: #f7b8c8;
+      --deep: #b85f7b;
+      --ink: #55434b;
+      --cream: #fff9f5;
+      --lav: #e8ddf7;
+      --yellow: #ffe8a8;
+      --mint: #d9eee5;
+    }
 
-  .login-card{width:min(430px,92vw);margin:7vh auto 24px;background:#ffffffeb;border:1px solid #fff;box-shadow:0 18px 55px #b87a8b20;border-radius:30px;padding:clamp(24px,6vw,38px);text-align:center}
-  .login-art{font-size:3.2rem;margin:10px 0 18px;animation:float 3s ease-in-out infinite}
-  .login-card h1{font-size:clamp(2rem,8vw,3rem);margin:10px 0}
-  .login-card p{margin-bottom:20px}
-  .login-form{display:grid;gap:12px;text-align:left}
-  .login-form label{font-size:.82rem;font-weight:800;color:#9b687a;margin:2px 0 -7px 5px}
-  .login-form input{width:100%;padding:14px 16px;border:1px solid #f0d5de;border-radius:15px;background:#fffafd;color:#55434b;font:inherit;outline:none}
-  .login-form input:focus{border-color:#d97896;box-shadow:0 0 0 3px #f7b8c833}
-  .login-form .btn{width:100%;margin-top:7px}
-  .login-error{min-height:22px;margin:0!important;color:#b85f7b!important;font-size:.82rem}
-  .login-hint{font-size:.76rem;color:#b49aa4;margin-top:14px}
+    * {
+      box-sizing: border-box
+    }
 
-  @media(max-width:480px){.memory{gap:8px}.memory div{min-height:100px;padding:12px 6px}.card{border-radius:24px}}
-</style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at 15% 10%, #ffe2eb 0, transparent 28%), radial-gradient(circle at 90% 80%, #e9e0fb 0, transparent 30%), var(--cream);
+      color: var(--ink);
+      font-family: ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+      overflow-x: hidden
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: 0
+    }
+
+    .wrap {
+      width: min(720px, 92vw);
+      margin: auto;
+      padding: 28px 0 56px
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .76rem;
+      letter-spacing: .13em;
+      color: #a77a89;
+      text-transform: uppercase
+    }
+
+    .top .heart {
+      font-size: 1.3rem;
+      letter-spacing: 0
+    }
+
+    .card {
+      margin: 28px auto 0;
+      background: #ffffffd9;
+      border: 1px solid #fff;
+      box-shadow: 0 18px 55px #b87a8b20;
+      border-radius: 30px;
+      padding: clamp(22px, 5vw, 42px);
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .eyebrow {
+      font-size: .76rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--deep);
+      font-weight: 800
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 9vw, 4.7rem);
+      line-height: 1.02;
+      letter-spacing: -.06em;
+      margin: 14px 0;
+      color: #684b59
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 6vw, 2.5rem);
+      letter-spacing: -.04em;
+      color: #684b59;
+      margin-bottom: 12px
+    }
+
+    p {
+      line-height: 1.75;
+      color: #806c75
+    }
+
+    .hero-art {
+      height: 190px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      margin: 8px auto 18px
+    }
+
+    .envelope {
+      width: 170px;
+      height: 112px;
+      background: #f5b8c8;
+      border-radius: 12px;
+      position: relative;
+      box-shadow: 0 12px 22px #b85f7b25;
+      transform: rotate(-3deg)
+    }
+
+    .envelope:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #f9d2dc;
+      clip-path: polygon(0 0, 50% 58%, 100% 0);
+      border-radius: 12px 12px 0 0
+    }
+
+    .envelope:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #ed9fb4;
+      clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+      border-radius: 0 0 12px 12px
+    }
+
+    .seal {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff2f4;
+      color: #c46c86;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem
+    }
+
+    .float {
+      position: absolute;
+      font-size: 1.7rem;
+      animation: float 3s ease-in-out infinite
+    }
+
+    .f1 {
+      left: 12%;
+      top: 18%
+    }
+
+    .f2 {
+      right: 13%;
+      top: 14%;
+      animation-delay: .8s
+    }
+
+    .f3 {
+      right: 19%;
+      bottom: 8%;
+      animation-delay: 1.4s
+    }
+
+    .f4 {
+      left: 20%;
+      bottom: 3%;
+      animation-delay: .4s
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-10px) rotate(8deg)
+      }
+    }
+
+    .btn {
+      padding: 14px 23px;
+      border-radius: 999px;
+      background: var(--deep);
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 8px 18px #b85f7b35;
+      transition: .2s
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.04)
+    }
+
+    .btn.secondary {
+      background: #fff0f4;
+      color: #a34e6b;
+      box-shadow: none;
+      border: 1px solid #f5d3dd
+    }
+
+    .hint {
+      font-size: .8rem;
+      color: #ad929c;
+      margin: 14px 0 0
+    }
+
+    .hidden {
+      display: none !important
+    }
+
+    .progress {
+      height: 5px;
+      background: #f8e7ec;
+      border-radius: 9px;
+      overflow: hidden;
+      margin: 0 0 22px
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 20%;
+      background: #dc91a8;
+      transition: width .3s
+    }
+
+    .memory {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 22px 0
+    }
+
+    .memory div {
+      border-radius: 18px;
+      padding: 18px 12px;
+      min-height: 112px;
+      display: grid;
+      place-items: center;
+      font-size: 2rem
+    }
+
+    .memory div:nth-child(1) {
+      background: #fff0f3
+    }
+
+    .memory div:nth-child(2) {
+      background: #f0eafa
+    }
+
+    .memory div:nth-child(3) {
+      background: #fff5d9
+    }
+
+    .memory div:nth-child(4) {
+      background: #e9f5ef
+    }
+
+    .memory small {
+      display: block;
+      font-size: .78rem;
+      color: #806c75;
+      margin-top: 6px
+    }
+
+    .note {
+      background: #fff7e8;
+      border: 1px dashed #e7c98a;
+      padding: 22px;
+      border-radius: 20px;
+      text-align: left;
+      line-height: 1.9;
+      color: #75616a;
+      margin: 20px 0
+    }
+
+    .question {
+      font-size: clamp(2rem, 7vw, 3.3rem);
+      line-height: 1.1;
+      color: #a94e6c;
+      margin: 18px 0
+    }
+
+    .choices {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px
+    }
+
+    .yes {
+      background: #d97896
+    }
+
+    .no {
+      background: #fff0f4;
+      color: #a45a73;
+      border: 1px solid #f0cbd7;
+      position: relative
+    }
+
+    .final-heart {
+      font-size: 4rem;
+      animation: beat 1s infinite
+    }
+
+    @keyframes beat {
+      50% {
+        transform: scale(1.15)
+      }
+    }
+
+    .footer {
+      text-align: center;
+      font-size: .75rem;
+      color: #b49aa4;
+      margin-top: 22px
+    }
+
+    .sparkle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 5;
+      font-size: 20px;
+      animation: pop 900ms ease-out forwards
+    }
+
+    @keyframes pop {
+      to {
+        transform: translate(var(--x), var(--y)) rotate(160deg) scale(.2);
+        opacity: 0
+      }
+    }
+
+    .login-card {
+      width: min(430px, 92vw);
+      margin: 7vh auto 24px;
+      background: #ffffffeb;
+      border: 1px solid #fff;
+      box-shadow: 0 18px 55px #b87a8b20;
+      border-radius: 30px;
+      padding: clamp(24px, 6vw, 38px);
+      text-align: center
+    }
+
+    .login-art {
+      font-size: 3.2rem;
+      margin: 10px 0 18px;
+      animation: float 3s ease-in-out infinite
+    }
+
+    .login-card h1 {
+      font-size: clamp(2rem, 8vw, 3rem);
+      margin: 10px 0
+    }
+
+    .login-card p {
+      margin-bottom: 20px
+    }
+
+    .login-form {
+      display: grid;
+      gap: 12px;
+      text-align: left
+    }
+
+    .login-form label {
+      font-size: .82rem;
+      font-weight: 800;
+      color: #9b687a;
+      margin: 2px 0 -7px 5px
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #f0d5de;
+      border-radius: 15px;
+      background: #fffafd;
+      color: #55434b;
+      font: inherit;
+      outline: none
+    }
+
+    .login-form input:focus {
+      border-color: #d97896;
+      box-shadow: 0 0 0 3px #f7b8c833
+    }
+
+    .login-form .btn {
+      width: 100%;
+      margin-top: 7px
+    }
+
+    .login-error {
+      min-height: 22px;
+      margin: 0 !important;
+      color: #b85f7b !important;
+      font-size: .82rem
+    }
+
+    .login-hint {
+      font-size: .76rem;
+      color: #b49aa4;
+      margin-top: 14px
+    }
+
+    @media(max-width:480px) {
+      .memory {
+        gap: 8px
+      }
+
+      .memory div {
+        min-height: 100px;
+        padding: 12px 6px
+      }
+
+      .card {
+        border-radius: 24px
+      }
+    }
+
+    .music-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px auto;
+      width: 100%;
+    }
+
+    .music-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      padding: 10px 20px;
+      border: 1px solid #f5c3d5;
+      border-radius: 50px;
+
+      background: #fff0f5;
+      color: #d66d96;
+
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+
+      box-shadow: 0 4px 12px rgba(214, 109, 150, 0.15);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .music-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(233, 137, 176, 0.45);
+    }
+
+    .music-btn:active {
+      transform: scale(0.95);
+    }
+
+    #musicIcon {
+      font-size: 18px;
+      line-height: 1;
+      animation: musicSpin 3s linear infinite;
+    }
+
+    .music-btn.paused #musicIcon {
+      animation-play-state: paused;
+      opacity: 0.7;
+    }
+
+    @keyframes musicSpin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .music-btn {
+        bottom: 16px;
+        right: 16px;
+        padding: 10px 15px;
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<section class="login-card" id="loginGate">
-  <div class="eyebrow">a little surprise awaits</div>
-  <div class="login-art" aria-hidden="true">💌</div>
-  <h1>Hi, you<span style="color:#d97896">.</span></h1>
-  <p>Ada sesuatu kecil yang disiapkan khusus buat kamu. Tapi, kamu harus masuk dulu. ♡</p>
-  <form class="login-form" id="loginForm">
-    <label for="loginUser">Username</label>
-    <input id="loginUser" name="username" type="text" placeholder="Your username" autocomplete="username" required>
-    <label for="loginPass">Password</label>
-    <input id="loginPass" name="password" type="password" placeholder="Your password" autocomplete="current-password" required>
-    <button class="btn" type="submit">Open my little surprise ♡</button>
-    <p class="login-error" id="loginError" aria-live="polite"></p>
-  </form>
-  <div class="login-hint">psst... sepertinya kamu sudah tahu jawabannya 😉</div>
-</section>
-
-<main class="wrap hidden" id="siteContent">
-  <div class="top"><span>a tiny corner of the internet</span><span class="heart">made with ♡</span></div>
-
-  <section class="card" id="intro">
-    <div class="eyebrow">a little surprise for Nanda Eka Putri</div>
-    <div class="hero-art" aria-hidden="true">
-      <span class="float f1">✦</span><span class="float f2">♡</span><span class="float f3">🌷</span><span class="float f4">✧</span>
-      <div class="envelope"><div class="seal">♥</div></div>
-    </div>
-    <h1>Hai, nep<span style="color:#d97896">.</span></h1>
-    <p>Ada sesuatu yang ingin aku sampaikan.<br>Tenang, bukan tagihan atau bug report kok. 😄</p>
-    <button class="btn" onclick="start()">Buka surat kecil ini ♡</button>
-    <div class="hint">dibuat khusus untuk seseorang yang spesial</div>
+  <section class="login-card" id="loginGate">
+    <div class="eyebrow">a little surprise awaits</div>
+    <div class="login-art" aria-hidden="true">💌</div>
+    <h1>Hi, you<span style="color:#d97896">.</span></h1>
+    <p>Ada sesuatu kecil yang disiapkan khusus buat kamu. Tapi, kamu harus masuk dulu. ♡</p>
+    <form class="login-form" id="loginForm">
+      <label for="loginUser">Username</label>
+      <input id="loginUser" name="username" type="text" placeholder="Your username" autocomplete="username" required>
+      <label for="loginPass">Password</label>
+      <input id="loginPass" name="password" type="password" placeholder="Your password" autocomplete="current-password"
+        required>
+      <button class="btn" type="submit">Open my little surprise ♡</button>
+      <p class="login-error" id="loginError" aria-live="polite"></p>
+    </form>
+    <div class="login-hint">psst... sepertinya kamu sudah tahu jawabannya 😉</div>
   </section>
 
-  <section class="card hidden" id="story">
-    <div class="progress"><span id="bar"></span></div>
-    <div id="step1">
-      <div class="eyebrow">chapter 01 · little things</div>
-      <h2>Hal-hal kecil yang aku suka</h2>
-      <p>Bukan hal besar atau sesuatu yang dibuat-buat. Justru hal sederhana yang bikin aku senang mengenal kamu.</p>
-      <div class="memory">
-        <div>💠<small>Antusiasme kamu saat cerita tentang hal yang kamu suka</small></div>
-        <div>🎨<small>Momen painting bareng yang sampai sekarang masih aku ingat</small></div>
-        <div>🌼<small>Caramu membuat obrolan sederhana terasa menyenangkan</small></div>
-        <div>✨<small>Kamu yang nggak ragu untuk ngobrol lebih dalam tentang banyak hal</small></div>
+  <main class="wrap hidden" id="siteContent">
+    <div class="top"><span>a tiny corner of the internet</span><span class="heart">made with ♡</span></div>
+
+    <section class="card" id="intro">
+      <div class="eyebrow">a little surprise for Nanda Eka Putri</div>
+      <div class="hero-art" aria-hidden="true">
+        <span class="float f1">✦</span><span class="float f2">♡</span><span class="float f3">🌷</span><span
+          class="float f4">✧</span>
+        <div class="envelope">
+          <div class="seal">♥</div>
+        </div>
       </div>
-      <button class="btn" onclick="next(2)">Lanjut yuk →</button>
-    </div>
-    <div id="step2" class="hidden">
-      <div class="eyebrow">chapter 02 · a small confession</div>
-      <h2>A special date for someone special. ♡</h2>
-      <div class="note">
+      <h1>Hai, nep<span style="color:#d97896">.</span></h1>
+      <p>Ada sesuatu yang ingin aku sampaikan.<br>Tenang, bukan tagihan atau bug report kok. 😄</p>
+      <button class="btn" onclick="start()">Buka surat kecil ini ♡</button>
+      <div class="hint">dibuat khusus untuk seseorang yang spesial</div>
+    </section>
 
-Hari ini jadi hari yang spesial buatku, karena ada satu hal yang akhir-akhir ini ingin aku sampaikan kepadamu: tentang perasaan yang perlahan tumbuh selama kita saling mengenal. <br><br>
-
-        Nggak terasa, sudah dua bulan kita melewati banyak obrolan dan momen bersama. Mungkin belum semua hal tentang kita saling tahu, tapi sedikit demi sedikit, aku mulai mengenal kamu lebih dekat. Dan dari setiap hal kecil itu, ada banyak alasan yang membuatku semakin senang bisa mengenalmu.
-<br><br>
-Awalnya mungkin sesederhana obrolan tentang kopi. Ternyata kita punya kesukaan yang sama, dan dari hal kecil itu aku mulai menikmati setiap kesempatan untuk mengenal kamu.
-<br><br>
-Ada satu momen yang bikin aku sangat bahagia sekaligus agak grogi, yaitu ketika aku diperkenalkan kepada orang tuamu. Mungkin terlihat sederhana, tapi bagiku itu menjadi salah satu momen yang membuatku semakin yakin sama kamu.
-<br><br>
-Aku ingin mengenal kamu lebih jauh, bukan hanya untuk menikmati hari-hari yang menyenangkan, tapi karena aku merasa kita punya tujuan yang sama untuk melangkah ke jenjang yang lebih serius.
-<br><br>
-Aku membayangkan hal-hal sederhana yang bisa kita jalani bersama. Senang bersama, berbagi cerita tentang hari yang kita lewati, saling memahami saat keadaan tidak selalu mudah, dan suatu hari nanti membangun sesuatu bersama, bahkan mungkin keluarga kecil bahagia yang kita impikan.
-<br><br>
-Aku nggak tahu persis bagaimana perjalanan ke depannya, tapi aku tahu bahwa aku ingin mencoba menjalaninya bersama kamu.
+    <section class="card hidden" id="story">
+      <div class="progress"><span id="bar"></span></div>
+      <div id="step1">
+        <div class="eyebrow">chapter 01 · little things</div>
+        <h2>Hal-hal kecil yang aku suka</h2>
+        <p>Bukan hal besar atau sesuatu yang dibuat-buat. Justru hal sederhana yang bikin aku senang mengenal kamu.</p>
+        <div class="memory">
+          <div>💠<small>Antusiasme kamu saat cerita tentang hal yang kamu suka</small></div>
+          <div>🎨<small>Momen painting bareng yang sampai sekarang masih aku ingat</small></div>
+          <div>🌼<small>Caramu membuat obrolan sederhana terasa menyenangkan</small></div>
+          <div>✨<small>Kamu yang nggak ragu untuk ngobrol lebih dalam tentang banyak hal</small></div>
+        </div>
+        <button class="btn" onclick="next(2)">Lanjut yuk →</button>
       </div>
-      <p>Nggak ada kalimat yang terlalu sempurna. Aku cuma ingin menyampaikannya dengan jujur.</p>
-      <button class="btn" onclick="next(3)">Ada satu hal lagi →</button>
-    </div>
-    <div id="step3" class="hidden">
-      <div class="eyebrow">the question</div>
-      <div class="final-heart">♡</div>
-      <p>Jadi, setelah semua cerita kecil ini...</p>
-      <div class="question">Would you be my girlfriend?</div>
-      <p>Take your time. Aku ingin kamu menjawab dengan nyaman dan tanpa merasa terburu-buru.</p>
-      <div class="choices">
-        <button class="btn yes" onclick="answerYes()">Yes, I'd love to! ♡</button>
-        <button class="btn secondary no" id="noBtn" onclick="answerMaybe()">Can I think about it?</button>
+      <div id="step2" class="hidden">
+        <div class="eyebrow">chapter 02 · a small confession</div>
+        <h2>A special date for someone special. ♡</h2>
+        <div class="note">
+
+          Hari ini jadi hari yang spesial buatku, karena ada satu hal yang akhir-akhir ini ingin aku sampaikan kepadamu:
+          tentang perasaan yang perlahan tumbuh selama kita saling mengenal. <br><br>
+
+          Nggak terasa, sudah dua bulan kita melewati banyak obrolan dan momen bersama. Mungkin belum semua hal tentang
+          kita saling tahu, tapi sedikit demi sedikit, aku mulai mengenal kamu lebih dekat. Dan dari setiap hal kecil
+          itu, ada banyak alasan yang membuatku semakin senang bisa mengenalmu.
+          <br><br>
+          Awalnya mungkin sesederhana obrolan tentang kopi. Ternyata kita punya kesukaan yang sama, dan dari hal kecil
+          itu aku mulai menikmati setiap kesempatan untuk mengenal kamu.
+          <br><br>
+          Ada satu momen yang bikin aku sangat bahagia sekaligus agak grogi, yaitu ketika aku diperkenalkan kepada orang
+          tuamu. Mungkin terlihat sederhana, tapi bagiku itu menjadi salah satu momen yang membuatku semakin yakin sama
+          kamu.
+          <br><br>
+          Aku ingin mengenal kamu lebih jauh, bukan hanya untuk menikmati hari-hari yang menyenangkan, tapi karena aku
+          merasa kita punya tujuan yang sama untuk melangkah ke jenjang yang lebih serius.
+          <br><br>
+          Aku membayangkan hal-hal sederhana yang bisa kita jalani bersama. Senang bersama, berbagi cerita tentang hari
+          yang kita lewati, saling memahami saat keadaan tidak selalu mudah, dan suatu hari nanti membangun sesuatu
+          bersama, bahkan mungkin keluarga kecil bahagia yang kita impikan.
+          <br><br>
+          Aku nggak tahu persis bagaimana perjalanan ke depannya, tapi aku tahu bahwa aku ingin mencoba menjalaninya
+          bersama kamu.
+        </div>
+        <p>Nggak ada kalimat yang terlalu sempurna. Aku cuma ingin menyampaikannya dengan jujur.</p>
+        <button class="btn" onclick="next(3)">Ada satu hal lagi →</button>
       </div>
+      <div id="step3" class="hidden">
+        <div class="eyebrow">the question</div>
+        <div class="final-heart">♡</div>
+        <p>Jadi, setelah semua cerita kecil ini...</p>
+        <div class="question">Would you be my girlfriend?</div>
+        <p>Take your time. Aku ingin kamu menjawab dengan nyaman dan tanpa merasa terburu-buru.</p>
+        <div class="choices">
+          <button class="btn yes" onclick="answerYes()">Yes, I'd love to! ♡</button>
+          <button class="btn secondary no" id="noBtn" onclick="answerMaybe()">Can I think about it?</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card hidden" id="result">
+      <div class="eyebrow">one more thing</div>
+      <div class="final-heart">💗</div>
+      <h2 id="resultTitle">Whatever your answer is...</h2>
+      <p id="resultText">Terima kasih sudah meluangkan waktu untuk membaca ini. Aku senang bisa mengenal kamu.</p>
+      <button class="btn secondary" onclick="restart()">Baca lagi dari awal ↺</button>
+    </section>
+
+    <div class="footer">a little courage, wrapped in a little website · ♡</div>
+    <div class="music-container">
+      <button id="musicToggle" class="music-btn" onclick="toggleMusic()">
+        <span id="musicIcon">♫</span>
+        <span id="musicText">Pause Music</span>
+      </button>
     </div>
-  </section>
+  </main>
 
-  <section class="card hidden" id="result">
-    <div class="eyebrow">one more thing</div>
-    <div class="final-heart">💗</div>
-    <h2 id="resultTitle">Whatever your answer is...</h2>
-    <p id="resultText">Terima kasih sudah meluangkan waktu untuk membaca ini. Aku senang bisa mengenal kamu.</p>
-    <button class="btn secondary" onclick="restart()">Baca lagi dari awal ↺</button>
-  </section>
-  <div class="footer">a little courage, wrapped in a little website · ♡</div>
-</main>
-<script>
+  <audio id="bgMusic" loop>
+    <source src="./Jaz - Bersamamu (Official Lyric Video).mp3" type="audio/mpeg">
+  </audio>
+  <script>
 
-  const loginGate=document.getElementById('loginGate');
-  const siteContent=document.getElementById('siteContent');
-  document.getElementById('loginForm').addEventListener('submit',function(event){
-    event.preventDefault();
-    const username=document.getElementById('loginUser').value.trim();
-    const password=document.getElementById('loginPass').value;
-    if(username==='hab_nep' && password==='segelaskopisejutacerita'){
-      loginGate.classList.add('hidden');
-      siteContent.classList.remove('hidden');
-     // Setelah login berhasil
-sendTelegramNotification("💌 Someone just entered the confession website!");
+    const loginGate = document.getElementById('loginGate');
+    const siteContent = document.getElementById('siteContent');
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const username = document.getElementById('loginUser').value.trim();
+      const password = document.getElementById('loginPass').value;
+      if (username === 'hab_nep' && password === 'segelaskopisejutacerita') {
+        loginGate.classList.add('hidden');
+        siteContent.classList.remove('hidden');
 
- window.scrollTo({top:0,behavior:'smooth'});
-    }else{
-      document.getElementById('loginError').textContent='Hmm, username atau password-nya belum tepat. Coba lagi ya ♡';
-      document.getElementById('loginPass').value='';
-      document.getElementById('loginPass').focus();
+        const music = document.getElementById('bgMusic');
+        music.volume = 0.1;
+        music.play().catch((error) => {
+          console.log("Music playback failed:", error)
+        });
+        // Setelah login berhasil
+        sendTelegramNotification("💌 Someone just entered the confession website!");
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        document.getElementById('loginError').textContent = 'Hmm, username atau password-nya belum tepat. Coba lagi ya ♡';
+        document.getElementById('loginPass').value = '';
+        document.getElementById('loginPass').focus();
+      }
+    });
+    const intro = document.getElementById('intro'), story = document.getElementById('story'), result = document.getElementById('result');
+    function start() {
+      intro.classList.add('hidden'); story.classList.remove('hidden'); next(1); window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Saat membuka surat
+      sendTelegramNotification("📖 She just opened your letter!");
     }
-  });
-  const intro=document.getElementById('intro'), story=document.getElementById('story'), result=document.getElementById('result');
-  function start(){
-intro.classList.add('hidden');story.classList.remove('hidden');next(1);window.scrollTo({top:0,behavior:'smooth'});
-// Saat membuka surat
-sendTelegramNotification("📖 She just opened your letter!");
-}
-  function next(n){
-    [1,2,3].forEach(i=>document.getElementById('step'+i).classList.toggle('hidden',i!==n));
-    document.getElementById('bar').style.width=({1:'33%',2:'66%',3:'100%'})[n];
-    window.scrollTo({top:0,behavior:'smooth'});
-  }
-  function answerYes(){
-
-// Ketika dia memilih Yes
-sendTelegramNotification(
-  "❤️ Nep said YES!"
-);
-    story.classList.add('hidden');result.classList.remove('hidden');
-    document.getElementById('resultTitle').textContent='You just made me smile. ♡';
-    document.getElementById('resultText').textContent='Makasih sudah menerima perasaanku. Aku nggak sabar buat membuat lebih banyak cerita dan kenangan bareng kamu. Kita jalanin pelan-pelan, ya.';
-    confetti();window.scrollTo({top:0,behavior:'smooth'});
-  }
-  function answerMaybe(){
-    story.classList.add('hidden');result.classList.remove('hidden');
-    document.getElementById('resultTitle').textContent='Of course. Take your time. ♡';
-    document.getElementById('resultText').textContent='Nggak apa-apa, aku menghargai perasaan dan keputusan kamu. Terima kasih sudah membaca sampai sini. Apa pun jawabannya, aku tetap senang pernah mengenal kamu.';
-    window.scrollTo({top:0,behavior:'smooth'});
-// Ketika dia memilih Maybe
-sendTelegramNotification(
-  "Nep masih mikir dulu, bingung!"
-);
-  }
-  function restart(){result.classList.add('hidden');intro.classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
-  function confetti(){
-    const symbols=['♡','✦','✿','♥','✨'];
-    for(let i=0;i<34;i++){
-      const s=document.createElement('span');s.className='sparkle';s.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-      s.style.left=(window.innerWidth/2)+'px';s.style.top=(window.innerHeight/2)+'px';
-      s.style.setProperty('--x',(Math.random()-.5)*window.innerWidth+'px');s.style.setProperty('--y',(Math.random()-.5)*window.innerHeight+'px');
-      document.body.appendChild(s);setTimeout(()=>s.remove(),950);
+    function next(n) {
+      [1, 2, 3].forEach(i => document.getElementById('step' + i).classList.toggle('hidden', i !== n));
+      document.getElementById('bar').style.width = ({ 1: '33%', 2: '66%', 3: '100%' })[n];
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }
-async function sendTelegramNotification(message) {
-  const token = "9229928042:AAHXJ6ldga0FJHqWbsLL7iKnWxSuwcEihp8";
-  const chatId = "1252882396";
+    function answerYes() {
 
-  await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: message
-    })
-  });
-}
+      // Ketika dia memilih Yes
+      sendTelegramNotification(
+        "❤️ Nep said YES!"
+      );
+      story.classList.add('hidden'); result.classList.remove('hidden');
+      document.getElementById('resultTitle').textContent = 'You just made me smile. ♡';
+      document.getElementById('resultText').textContent = 'Makasih sudah menerima perasaanku. Aku nggak sabar buat membuat lebih banyak cerita dan kenangan bareng kamu. Kita jalanin pelan-pelan, ya.';
+      confetti(); window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function answerMaybe() {
+      story.classList.add('hidden'); result.classList.remove('hidden');
+      document.getElementById('resultTitle').textContent = 'Of course. Take your time. ♡';
+      document.getElementById('resultText').textContent = 'Nggak apa-apa, aku menghargai perasaan dan keputusan kamu. Terima kasih sudah membaca sampai sini. Apa pun jawabannya, aku tetap senang pernah mengenal kamu.';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Ketika dia memilih Maybe
+      sendTelegramNotification(
+        "Nep masih mikir dulu, bingung!"
+      );
+    }
+    function restart() { result.classList.add('hidden'); intro.classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    function confetti() {
+      const symbols = ['♡', '✦', '✿', '♥', '✨'];
+      for (let i = 0; i < 34; i++) {
+        const s = document.createElement('span'); s.className = 'sparkle'; s.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        s.style.left = (window.innerWidth / 2) + 'px'; s.style.top = (window.innerHeight / 2) + 'px';
+        s.style.setProperty('--x', (Math.random() - .5) * window.innerWidth + 'px'); s.style.setProperty('--y', (Math.random() - .5) * window.innerHeight + 'px');
+        document.body.appendChild(s); setTimeout(() => s.remove(), 950);
+      }
+    }
+    async function sendTelegramNotification(message) {
+      const token = "9229928042:AAHXJ6ldga0FJHqWbsLL7iKnWxSuwcEihp8";
+      const chatId = "1252882396";
 
-</script>
+      await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message
+        })
+      });
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById('bgMusic');
+      const button = document.getElementById('musicToggle');
+      const icon = document.getElementById('musicIcon');
+      const text = document.getElementById('musicText');
+
+      if (music.paused) {
+        music.play();
+        icon.textContent = '♫';
+        text.textContent = 'Pause Music';
+        button.classList.remove('paused');
+      } else {
+        music.pause();
+        icon.textContent = '♪';
+        text.textContent = 'Play Music';
+        button.classList.add('paused');
+      }
+    }
+
+  </script>
 </body>
+
 </html>
