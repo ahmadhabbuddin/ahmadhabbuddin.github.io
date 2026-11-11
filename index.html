@@ -50,21 +50,51 @@
   .footer{text-align:center;font-size:.75rem;color:#b49aa4;margin-top:22px}
   .sparkle{position:fixed;pointer-events:none;z-index:5;font-size:20px;animation:pop 900ms ease-out forwards}
   @keyframes pop{to{transform:translate(var(--x),var(--y)) rotate(160deg) scale(.2);opacity:0}}
+
+  .login-card{width:min(430px,92vw);margin:7vh auto 24px;background:#ffffffeb;border:1px solid #fff;box-shadow:0 18px 55px #b87a8b20;border-radius:30px;padding:clamp(24px,6vw,38px);text-align:center}
+  .login-art{font-size:3.2rem;margin:10px 0 18px;animation:float 3s ease-in-out infinite}
+  .login-card h1{font-size:clamp(2rem,8vw,3rem);margin:10px 0}
+  .login-card p{margin-bottom:20px}
+  .login-form{display:grid;gap:12px;text-align:left}
+  .login-form label{font-size:.82rem;font-weight:800;color:#9b687a;margin:2px 0 -7px 5px}
+  .login-form input{width:100%;padding:14px 16px;border:1px solid #f0d5de;border-radius:15px;background:#fffafd;color:#55434b;font:inherit;outline:none}
+  .login-form input:focus{border-color:#d97896;box-shadow:0 0 0 3px #f7b8c833}
+  .login-form .btn{width:100%;margin-top:7px}
+  .login-error{min-height:22px;margin:0!important;color:#b85f7b!important;font-size:.82rem}
+  .login-hint{font-size:.76rem;color:#b49aa4;margin-top:14px}
+
   @media(max-width:480px){.memory{gap:8px}.memory div{min-height:100px;padding:12px 6px}.card{border-radius:24px}}
 </style>
 </head>
 <body>
-<main class="wrap">
+
+<section class="login-card" id="loginGate">
+  <div class="eyebrow">a little surprise awaits</div>
+  <div class="login-art" aria-hidden="true">💌</div>
+  <h1>Hi, you<span style="color:#d97896">.</span></h1>
+  <p>Ada sesuatu kecil yang disiapkan khusus buat kamu. Tapi, kamu harus masuk dulu. ♡</p>
+  <form class="login-form" id="loginForm">
+    <label for="loginUser">Username</label>
+    <input id="loginUser" name="username" type="text" placeholder="Your username" autocomplete="username" required>
+    <label for="loginPass">Password</label>
+    <input id="loginPass" name="password" type="password" placeholder="Your password" autocomplete="current-password" required>
+    <button class="btn" type="submit">Open my little surprise ♡</button>
+    <p class="login-error" id="loginError" aria-live="polite"></p>
+  </form>
+  <div class="login-hint">psst... sepertinya kamu sudah tahu jawabannya 😉</div>
+</section>
+
+<main class="wrap hidden" id="siteContent">
   <div class="top"><span>a tiny corner of the internet</span><span class="heart">made with ♡</span></div>
 
   <section class="card" id="intro">
-    <div class="eyebrow">a little something for you</div>
+    <div class="eyebrow">a little surprise for Nanda Eka Putri</div>
     <div class="hero-art" aria-hidden="true">
       <span class="float f1">✦</span><span class="float f2">♡</span><span class="float f3">🌷</span><span class="float f4">✧</span>
       <div class="envelope"><div class="seal">♥</div></div>
     </div>
-    <h1>Hey, you<span style="color:#d97896">.</span></h1>
-    <p>Ada sesuatu yang pengin aku sampaikan.<br>Tenang, bukan tagihan atau bug report kok. 😄</p>
+    <h1>Hai, nep<span style="color:#d97896">.</span></h1>
+    <p>Ada sesuatu yang ingin aku sampaikan.<br>Tenang, bukan tagihan atau bug report kok. 😄</p>
     <button class="btn" onclick="start()">Buka surat kecil ini ♡</button>
     <div class="hint">dibuat khusus untuk seseorang yang spesial</div>
   </section>
@@ -76,22 +106,33 @@
       <h2>Hal-hal kecil yang aku suka</h2>
       <p>Bukan hal besar atau sesuatu yang dibuat-buat. Justru hal sederhana yang bikin aku senang mengenal kamu.</p>
       <div class="memory">
-        <div>🎨<small>Kreativitas dan caramu menikmati hal yang kamu suka</small></div>
-        <div>🎨<small>Momen painting bareng yang sederhana tapi berkesan</small></div>
-        <div>🌼<small>Cara kamu jadi diri sendiri</small></div>
-        <div>✨<small>Momen sederhana yang ternyata berkesan</small></div>
+        <div>💠<small>Antusiasme kamu saat cerita tentang hal yang kamu suka</small></div>
+        <div>🎨<small>Momen painting bareng yang sampai sekarang masih aku ingat</small></div>
+        <div>🌼<small>Caramu membuat obrolan sederhana terasa menyenangkan</small></div>
+        <div>✨<small>Kamu yang nggak ragu untuk ngobrol lebih dalam tentang banyak hal</small></div>
       </div>
       <button class="btn" onclick="next(2)">Lanjut yuk →</button>
     </div>
     <div id="step2" class="hidden">
       <div class="eyebrow">chapter 02 · a small confession</div>
-      <h2>Aku mau jujur sedikit...</h2>
+      <h2>A special date for someone special. ♡</h2>
       <div class="note">
-        Awalnya mungkin cuma obrolan biasa, lalu jadi saling mengenal, berbagi cerita, dan menghabiskan waktu bersama.
-        <br><br>
-        Dari obrolan sampai momen painting bareng itu, aku sadar kalau aku menikmati kehadiran kamu. Aku senang mengenal kamu lebih dekat, dan belakangan ini ada perasaan yang tumbuh lebih dari sekadar teman.
+
+Hari ini jadi hari yang spesial buatku, karena ada satu hal yang akhir-akhir ini ingin aku sampaikan kepadamu: tentang perasaan yang perlahan tumbuh selama kita saling mengenal. <br><br>
+
+        Nggak terasa, sudah dua bulan kita melewati banyak obrolan dan momen bersama. Mungkin belum semua hal tentang kita saling tahu, tapi sedikit demi sedikit, aku mulai mengenal kamu lebih dekat. Dan dari setiap hal kecil itu, ada banyak alasan yang membuatku semakin senang bisa mengenalmu.
+<br><br>
+Awalnya mungkin sesederhana obrolan tentang kopi. Ternyata kita punya kesukaan yang sama, dan dari hal kecil itu aku mulai menikmati setiap kesempatan untuk mengenal kamu.
+<br><br>
+Ada satu momen yang bikin aku sangat bahagia sekaligus agak grogi, yaitu ketika aku diperkenalkan kepada orang tuamu. Mungkin terlihat sederhana, tapi bagiku itu menjadi salah satu momen yang membuatku semakin yakin sama kamu.
+<br><br>
+Aku ingin mengenal kamu lebih jauh, bukan hanya untuk menikmati hari-hari yang menyenangkan, tapi karena aku merasa kita punya tujuan yang sama untuk melangkah ke jenjang yang lebih serius.
+<br><br>
+Aku membayangkan hal-hal sederhana yang bisa kita jalani bersama. Senang bersama, berbagi cerita tentang hari yang kita lewati, saling memahami saat keadaan tidak selalu mudah, dan suatu hari nanti membangun sesuatu bersama, bahkan mungkin keluarga kecil bahagia yang kita impikan.
+<br><br>
+Aku nggak tahu persis bagaimana perjalanan ke depannya, tapi aku tahu bahwa aku ingin mencoba menjalaninya bersama kamu.
       </div>
-      <p>Nggak ada kalimat yang terlalu sempurna. Aku cuma pengin menyampaikannya dengan jujur.</p>
+      <p>Nggak ada kalimat yang terlalu sempurna. Aku cuma ingin menyampaikannya dengan jujur.</p>
       <button class="btn" onclick="next(3)">Ada satu hal lagi →</button>
     </div>
     <div id="step3" class="hidden">
@@ -117,6 +158,23 @@
   <div class="footer">a little courage, wrapped in a little website · ♡</div>
 </main>
 <script>
+
+  const loginGate=document.getElementById('loginGate');
+  const siteContent=document.getElementById('siteContent');
+  document.getElementById('loginForm').addEventListener('submit',function(event){
+    event.preventDefault();
+    const username=document.getElementById('loginUser').value.trim();
+    const password=document.getElementById('loginPass').value;
+    if(username==='nep_manis' && password==='emangbeneranmanis123'){
+      loginGate.classList.add('hidden');
+      siteContent.classList.remove('hidden');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }else{
+      document.getElementById('loginError').textContent='Hmm, username atau password-nya belum tepat. Coba lagi ya ♡';
+      document.getElementById('loginPass').value='';
+      document.getElementById('loginPass').focus();
+    }
+  });
   const intro=document.getElementById('intro'), story=document.getElementById('story'), result=document.getElementById('result');
   function start(){intro.classList.add('hidden');story.classList.remove('hidden');next(1);window.scrollTo({top:0,behavior:'smooth'});}
   function next(n){
